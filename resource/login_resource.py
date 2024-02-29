@@ -8,6 +8,9 @@ class Login(Resource):
     def post(self):
         pass
 
+    def cadastro(self):
+        pass
+
     def put(self):
         pass
 
