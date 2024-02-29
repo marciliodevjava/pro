@@ -9,4 +9,5 @@ def config_routes_v0(api: Api):
     api.add_resource(Login, f'{BASE_PATH_HTTP}/login', methods=["POST"], endpoint='post')
     api.add_resource(Login, f'{BASE_PATH_HTTP}/login', methods=["PUT"], endpoint='put')
     api.add_resource(Login, f'{BASE_PATH_HTTP}/login', methods=["DELETE"], endpoint='delete')
+    api.add_resource(Login, f'{BASE_PATH_HTTP}/cadastro', methods=['POST'], endpoint='cadastro')
     return api
