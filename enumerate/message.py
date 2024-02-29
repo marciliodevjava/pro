@@ -7,3 +7,9 @@ class MessageLogin(Enum):
     LOGIN_USUARIO_DELETADO_COM_SUCESSO = 'Usuário deletado com sucesso'
     LOGIN_USUARIO_ATUALIZADO_COM_SUCESSO = 'Usuário atualizado com sucesso'
     LOGIN_USUARIO_CRIADO_COM_SUCESSO = 'Usuário criado com sucesso'
+
+
+class MessageToken(Enum):
+    TOKEN_INVALIDO = 'O Token é inválido'
+    TOKEN_EXPIRADO = 'O Token está expirado.'
+    TOKEN_NAO_ENVIADO = 'O Token não foi enviado.'
