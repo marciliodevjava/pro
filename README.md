@@ -16,7 +16,7 @@
 - `bcrypt==4.1.2`
 - `marshmallow==3.15.0`
 
-## Função `config_routes_v0`:
+## Função LOGIN:
 
 Aqui estão as ações mapeadas para a classe `Login`:
 
