@@ -13,3 +13,9 @@ class MessageToken(Enum):
     TOKEN_INVALIDO = 'O Token é inválido'
     TOKEN_EXPIRADO = 'O Token está expirado.'
     TOKEN_NAO_ENVIADO = 'O Token não foi enviado.'
+
+
+class UsuarioFormulario(Enum):
+    O_CAMPO_EMAIL = 'O campo email não foi enviado.'
+    O_CAMPO_PASSWORD = 'O campo password não foi enviado.'
+    O_CAMPO_USERNAME = 'O campo username não foi enviado.'
