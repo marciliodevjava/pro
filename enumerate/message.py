@@ -17,5 +17,5 @@ class MessageToken(Enum):
 
 class UsuarioFormulario(Enum):
     O_CAMPO_EMAIL = 'O campo email não foi enviado.'
-    O_CAMPO_PASSWORD = 'O campo password não foi enviado.'
-    O_CAMPO_USERNAME = 'O campo username não foi enviado.'
+    O_CAMPO_PASSWORD = 'O campo senha não foi enviado.'
+    O_CAMPO_USERNAME = 'O campo nome não foi enviado.'
