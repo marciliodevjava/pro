@@ -22,5 +22,7 @@ class UsuarioService:
             if usuario:
                 return {
                     'message': UsuarioFormulario.USUARIO_CRIADO,
-                    'usuario':
+                    'usuario': usuario.json()
                 }
+        except Exception as e:
+            return None
