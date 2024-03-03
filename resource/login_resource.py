@@ -16,9 +16,6 @@ class Login(Resource):
         pass
 
     def post(self):
-        pass
-
-    def cadastro(self):
         dados = self.__parser.parse_args()
         usuario = UsuarioService.cadastro_ususario(dados)
         if usuario.get('message') == UsuarioFormulario.USUARIO_JA_EXISTE:
