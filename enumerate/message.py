@@ -16,6 +16,9 @@ class MessageToken(Enum):
 
 
 class UsuarioFormulario(Enum):
+    USUARIO_JA_EXISTE = 'Usuario já existe.'
+    USUARIO_CRIADO = 'Usuario criado com sucesso.'
+    O_CAMPO_LOGIN = 'O campo login não foi enviado.'
     O_CAMPO_EMAIL = 'O campo email não foi enviado.'
     O_CAMPO_PASSWORD = 'O campo senha não foi enviado.'
     O_CAMPO_USERNAME = 'O campo nome não foi enviado.'
