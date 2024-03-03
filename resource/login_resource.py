@@ -23,7 +23,11 @@ class Login(Resource):
         usuario = UsuarioService.cadastro_ususario(dados)
         if usuario.get('message') == UsuarioFormulario.USUARIO_JA_EXISTE:
             return usuario, 200
-        return usuario
+        if not usuario:
+            return {
+                'message': UsuarioFormulario.USUARIO_OCORREU_UM_ERRO
+            }
+        return usuario, 201
 
     def put(self):
         pass
