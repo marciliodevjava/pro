@@ -17,7 +17,7 @@ class Login(Resource):
 
     def post(self):
         dados = self.__parser.parse_args()
-        usuario = UsuarioService.cadastro_ususario(dados)
+        usuario = UsuarioService.cadastro_usuario(dados)
         if usuario.get('message') == UsuarioFormulario.USUARIO_JA_EXISTE:
             return usuario, 200
         if not usuario:
