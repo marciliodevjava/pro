@@ -7,4 +7,5 @@ def gerador_password_hash(password):
 
 
 def check_password_hash(user_password, banco_password):
-    return bcrypt.checkpw(banco_password.encode('utf-8'), user_password)
+    valida = bcrypt.checkpw(user_password.encode('utf-8'), banco_password.encode('utf-8'))
+    return valida
