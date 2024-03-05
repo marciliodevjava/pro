@@ -24,10 +24,10 @@ class CadastroResource(Resource):
         return usuario, 201
 
     def put(self):
-        pass
+        dados = self.__parser.parse_args()
 
     def delete(self):
-        pass
+        dados = self.__parser.parse_args()
 
 
 class LoginResource(Resource):
