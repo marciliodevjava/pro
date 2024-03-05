@@ -1,6 +1,8 @@
-from enumerate.message import UsuarioFormulario
+from flask_jwt_extended import create_access_token
+
+from enumerate.message import UsuarioFormulario, MessageLogin
 from repository.usuario_model import UsuarioModel
-from utils.encriptador_de_senha import gerador_password_hash
+from utils.encriptador_de_senha import gerador_password_hash, check_password_hash
 
 
 class UsuarioService:
@@ -26,3 +28,24 @@ class UsuarioService:
                 }
         except Exception as e:
             return None
+
+    @classmethod
+    def login_usuario(cls, login, senha):
+        usuario = UsuarioModel.buscar(login)
+        if usuario:
+            if usuario and check_password_hash(senha, usuario.senha):
+                access_token = create_access_token(identity=usuario.id)
+                return {
+                    'message': MessageLogin.LOGIN_EFETUADO_COM_SUCESSO.value,
+                    'token': access_token,
+                    'nome': usuario.nome,
+                    'login': login
+                }
+            else:
+                return {
+                    'message': MessageLogin.LOGIN_SENHA_INCORRETA.value,
+                    "login": login
+                }
+        return {
+            'message': MessageLogin.USUARIO_NAO_EXISTE.value
+        }
