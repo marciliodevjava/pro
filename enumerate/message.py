@@ -2,6 +2,8 @@ from enum import Enum
 
 
 class MessageLogin(Enum):
+    USUARIO_NAO_EXISTE = 'Usuário não existe, deseja criar esse usuário?'
+    LOGIN_SENHA_INCORRETA = 'Senha incorreta, tente novamente.'
     LOGIN_EFETUADO_COM_SUCESSO = 'O Login foi realizado com sucesso.'
     LOGIN_OCORREU_ERRO_AO_LOGAR = 'Ocorreu um erro ao logar, informe ao suporte.'
     LOGIN_USUARIO_DELETADO_COM_SUCESSO = 'Usuário deletado com sucesso.'
@@ -23,3 +25,8 @@ class UsuarioFormulario(Enum):
     O_CAMPO_EMAIL = 'O campo email não foi enviado.'
     O_CAMPO_PASSWORD = 'O campo senha não foi enviado.'
     O_CAMPO_USERNAME = 'O campo nome não foi enviado.'
+
+
+class LoginFormulario(Enum):
+    CAMPO_SENHA = 'O campo login não foi enviado.'
+    CAMPO_LOGIN = 'O campo senha não foi enviado.'
