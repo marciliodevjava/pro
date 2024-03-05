@@ -4,6 +4,6 @@ from enumerate.message import UsuarioFormulario
 
 
 class UsuarioSchema(Schema):
-    username = fields.Str(required=True, error_messages={'required': UsuarioFormulario.O_CAMPO_USERNAME})
-    password = fields.Str(required=True, error_messages={'required': UsuarioFormulario.O_CAMPO_PASSWORD})
+    nome = fields.Str(required=True, error_messages={'required': UsuarioFormulario.O_CAMPO_USERNAME})
+    senha = fields.Str(required=True, error_messages={'required': UsuarioFormulario.O_CAMPO_PASSWORD})
     email = fields.Str(required=True, error_messages={'required': UsuarioFormulario.O_CAMPO_EMAIL})
