@@ -49,3 +49,12 @@ class UsuarioService:
         return {
             'message': MessageLogin.USUARIO_NAO_EXISTE.value
         }
+
+    @classmethod
+    def atualizar_usuario(cls, dados):
+        login = dados['login']
+        usuario = UsuarioModel.buscar(login)
+        if usuario:
+            nome = dados['nome']
+            email = dados['email']
+            usuario = UsuarioModel.atualizar(nome, email, usuario)
