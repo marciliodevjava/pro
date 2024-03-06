@@ -1,4 +1,5 @@
 BASE_PATH_HTTP = '/pro'
+
 SQLALCHEMY_DATABASE_URI = \
     '{SGBD}://{usuario}:{senha}@{servidor}:{port}/{database}'.format(
         SGBD='mysql+mysqlconnector',
@@ -9,10 +10,10 @@ SQLALCHEMY_DATABASE_URI = \
         database='pro'
     )
 
+SECRET = 'JWT_SECRET_KEY'
+SECRET_KEY = '123'
 DATABASE_URI = 'SQLALCHEMY_DATABASE_URI'
 HEADER_NAME = 'JWT_HEADER_NAME'
 HEADER_TYPE = 'JWT_HEADER_TYPE'
 NM_ID_SESSAO = "nmIdSessao"
 NONE = None
-SECRET = 'JWT_SECRET_KEY'
-SECRET_KEY = '123'
