@@ -40,3 +40,14 @@ class UsuarioModel(db.Model):
             return usuario
         except BaseException as b:
             return None
+
+    @classmethod
+    def atualizar(cls, nome, email, usuario):
+        try:
+            if usuario:
+                usuario.nome = nome
+                usuario.email = email
+                db.session.commit()
+            return None
+        except BaseException as e:
+            return None
