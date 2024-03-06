@@ -25,6 +25,7 @@ class CadastroResource(Resource):
 
     def put(self):
         dados = self.__parser.parse_args()
+        usuario = UsuarioService.atualizar_usuario(dados)
 
     def delete(self):
         dados = self.__parser.parse_args()
