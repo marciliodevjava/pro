@@ -48,6 +48,7 @@ class UsuarioModel(db.Model):
                 usuario.nome = nome
                 usuario.email = email
                 db.session.commit()
+                return usuario
             return None
         except BaseException as e:
             return None
