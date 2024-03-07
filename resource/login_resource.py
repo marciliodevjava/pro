@@ -29,6 +29,15 @@ class CadastroResource(Resource):
     def put(self):
         dados = self.__parser.parse_args()
         usuario = UsuarioService.atualizar_usuario(dados)
+        if usuario:
+            return {
+                'message': UsuarioFormulario.USUARIO_ATUALIZADO.value,
+                'usuario': usuario
+            }, 200
+        return {
+            'message': UsuarioFormulario.USUARIO_NAO_ATUALIZADO.value,
+            'nome': dados['nome']
+        }, 404
 
     def delete(self):
         dados = self.__parser.parse_args()
