@@ -18,6 +18,8 @@ class MessageToken(Enum):
 
 
 class UsuarioFormulario(Enum):
+    USUARIO_NAO_ATUALIZADO = 'Usuário não encontrado para atualizar.'
+    USUARIO_ATUALIZADO = 'Usuário atualizado com sucesso.'
     USUARIO_OCORREU_UM_ERRO = 'Ocorreu um erro ao salvar usuario.'
     USUARIO_JA_EXISTE = 'Usuario já existe.'
     USUARIO_CRIADO = 'Usuario criado com sucesso.'
