@@ -60,3 +60,10 @@ class UsuarioService:
             usuario = UsuarioModel.atualizar(nome, email, usuario)
             return usuario.json()
         return None
+
+    @classmethod
+    def deletar_usuario(cls, dados):
+        login = dados['login']
+        usuario = UsuarioModel.buscar(login)
+        if usuario and usuario.__eq__(dados):
+            UsuarioModel.deletar(usuario)
