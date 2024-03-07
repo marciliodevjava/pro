@@ -42,6 +42,13 @@ class CadastroResource(Resource):
     def delete(self):
         dados = self.__parser.parse_args()
         usuario = UsuarioService.deletar_usuario(dados)
+        if usuario:
+            return {
+                'message': UsuarioFormulario.USUARIO_DELETADO_COM_SUCESSO.value
+            }, 200
+        return {
+            'message': UsuarioFormulario.USUARIO_OCORREU_UM_ERRO_PARA_DELETAR.value
+        }
 
 
 class LoginResource(Resource):
