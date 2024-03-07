@@ -41,6 +41,7 @@ class CadastroResource(Resource):
 
     def delete(self):
         dados = self.__parser.parse_args()
+        usuario = UsuarioService.deletar_usuario(dados)
 
 
 class LoginResource(Resource):
