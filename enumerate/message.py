@@ -41,3 +41,7 @@ class ProdutoFormulario(Enum):
     O_CAMPO_QUANTIDADE = 'O campo quantidade não foi enviado.'
     O_CAMPO_DESCRICAO = 'O campo descrição não foi enviado.'
     O_CAMPO_NOME = 'O campo nome não foi enviado.'
+
+
+class ProdutoMessage(Enum):
+    PRODUTO_EXISTENTE = 'Esse produto já foi cadastrado.'
