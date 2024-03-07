@@ -2,6 +2,8 @@ from flask_restful import Resource, reqparse
 
 from enumerate.message import UsuarioFormulario, LoginFormulario, MessageLogin
 from service.usuario_service import UsuarioService
+from fomulario.usuario_shema import UsuarioSchema
+from flask import request
 
 
 class CadastroResource(Resource):
@@ -13,7 +15,8 @@ class CadastroResource(Resource):
         self.__parser.add_argument('email', type=str, required=True, help=UsuarioFormulario.O_CAMPO_EMAIL)
 
     def post(self):
-        dados = self.__parser.parse_args()
+        # dados = self.__parser.parse_args()
+        dados = UsuarioSchema().load(request.json)
         usuario = UsuarioService.cadastro_usuario(dados)
         if usuario.get('message').__eq__(UsuarioFormulario.USUARIO_JA_EXISTE.value):
             return usuario, 200
