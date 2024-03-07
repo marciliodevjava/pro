@@ -30,6 +30,7 @@ class UsuarioModel(db.Model):
                     self.email == dados['email']
             )
         return False
+
     @classmethod
     def buscar(cls, login):
         try:
@@ -58,5 +59,14 @@ class UsuarioModel(db.Model):
                 db.session.commit()
                 return usuario
             return None
+        except BaseException as e:
+            return None
+
+    @classmethod
+    def deletar(cls, usuario):
+        try:
+            db.session.delete(usuario)
+            db.session.commit()
+            return True
         except BaseException as e:
             return None
