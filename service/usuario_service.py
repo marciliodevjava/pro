@@ -58,3 +58,5 @@ class UsuarioService:
             nome = dados['nome']
             email = dados['email']
             usuario = UsuarioModel.atualizar(nome, email, usuario)
+            return usuario.json()
+        return None
