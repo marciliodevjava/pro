@@ -18,6 +18,8 @@ class MessageToken(Enum):
 
 
 class UsuarioFormulario(Enum):
+    USUARIO_OCORREU_UM_ERRO_PARA_DELETAR = 'Ocorreu um erro ao deletar o usuário.'
+    USUARIO_DELETADO_COM_SUCESSO = 'Usuário deletado com sucesso.'
     USUARIO_NAO_ATUALIZADO = 'Usuário não encontrado para atualizar.'
     USUARIO_ATUALIZADO = 'Usuário atualizado com sucesso.'
     USUARIO_OCORREU_UM_ERRO = 'Ocorreu um erro ao salvar usuario.'
