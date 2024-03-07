@@ -34,3 +34,10 @@ class UsuarioFormulario(Enum):
 class LoginFormulario(Enum):
     CAMPO_SENHA = 'O campo login não foi enviado.'
     CAMPO_LOGIN = 'O campo senha não foi enviado.'
+
+
+class ProdutoFormulario(Enum):
+    O_CAMPO_PRECO = 'O campo preço não foi enviado.'
+    O_CAMPO_QUANTIDADE = 'O campo quantidade não foi enviado.'
+    O_CAMPO_DESCRICAO = 'O campo descrição não foi enviado.'
+    O_CAMPO_NOME = 'O campo nome não foi enviado.'
