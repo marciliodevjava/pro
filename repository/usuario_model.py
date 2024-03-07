@@ -22,6 +22,14 @@ class UsuarioModel(db.Model):
             'email': self.email
         }
 
+    def __eq__(self, dados):
+        if (dados):
+            return (
+                    self.nome == dados['nome'] and
+                    self.login == dados['login'] and
+                    self.email == dados['email']
+            )
+        return False
     @classmethod
     def buscar(cls, login):
         try:
