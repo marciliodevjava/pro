@@ -66,4 +66,8 @@ class UsuarioService:
         login = dados['login']
         usuario = UsuarioModel.buscar(login)
         if usuario and usuario.__eq__(dados):
-            UsuarioModel.deletar(usuario)
+            deletado = UsuarioModel.deletar(usuario)
+            if deletado:
+                return True
+            return None
+        return None
