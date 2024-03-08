@@ -15,6 +15,7 @@ class MessageToken(Enum):
     TOKEN_INVALIDO = 'O Token é inválido'
     TOKEN_EXPIRADO = 'O Token está expirado.'
     TOKEN_NAO_ENVIADO = 'O Token não foi enviado.'
+    TOKEN_LOGIN_NOVAMENTE = 'Faça login novamente para obter um novo token'
 
 
 class UsuarioFormulario(Enum):
@@ -48,3 +49,8 @@ class ProdutoMessage(Enum):
     PRODUTO_OCORREU_UM_ERRO = 'Ocorreu um erro ao salvar produto.'
     PRODUTO_CRIADO_COM_SUCESSO = 'Produto criado com sucesso.'
     PRODUTO_EXISTENTE = 'Esse produto já foi cadastrado.'
+
+
+class ErroServidorMessage(Enum):
+    ERRO_OCORREU_ERRO_INTERNO_SERVIDOR = 'Ocorreu um erro interno no servidor.'
+    ERRO_INTERNO_SERVIDOR = 'Erro interno no servidor'
