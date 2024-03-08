@@ -11,7 +11,6 @@ app = Flask(__name__)
 api = Api(app)
 
 api = config_app(api)
-
 api = config_routes_v0(api)
 
 
