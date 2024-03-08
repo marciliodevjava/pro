@@ -1,5 +1,7 @@
-from repository.produto_model import ProdutoModel
 from enumerate.message import ProdutoMessage
+from repository.produto_model import ProdutoModel
+
+
 class ProdutoService:
 
     @classmethod
@@ -9,3 +11,18 @@ class ProdutoService:
             return {
                 'message': ProdutoMessage.PRODUTO_EXISTENTE.value
             }
+        nome = dados['nome']
+        descricao = dados['descricao']
+        quantidade = dados['quantidade']
+        preco = dados['preco']
+        produto = ProdutoModel(nome=nome, descricao=descricao, quantidade=quantidade, preco=preco)
+
+        try:
+            produto = ProdutoModel.salvar(produto)
+            if produto:
+                return {
+                    'message': ProdutoMessage.PRODUTO_CRIADO_COM_SUCESSO.value,
+                    'produto': produto.json()
+                }
+        except Exception as e:
+            return None
