@@ -44,6 +44,7 @@ class ProdutoFormulario(Enum):
 
 
 class ProdutoMessage(Enum):
+    NAO_EXISTE_PRODUTOS_CADASTRADOS = 'Não existe produto cadastrados.'
     PRODUTO_OCORREU_UM_ERRO = 'Ocorreu um erro ao salvar produto.'
     PRODUTO_CRIADO_COM_SUCESSO = 'Produto criado com sucesso.'
     PRODUTO_EXISTENTE = 'Esse produto já foi cadastrado.'
