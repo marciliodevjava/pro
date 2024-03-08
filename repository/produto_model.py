@@ -41,3 +41,13 @@ class ProdutoModel(db.Model):
             return produto
         except BaseException as e:
             return None
+
+    @classmethod
+    def buscar_todos_produtos(cls):
+        try:
+            produto = db.session.query(cls).all()
+            if produto:
+                return produto
+            return None
+        except BaseException as e:
+            return None
