@@ -15,6 +15,14 @@ class ProdutoModel(db.Model):
         self.quantidade = quantidade
         self.preco = preco
 
+    def json(self):
+        return {
+            'nome': self.nome,
+            'descricao': self.descricao,
+            'quantidade': self.quantidade,
+            'preco': self.preco
+        }
+
     @classmethod
     def buscar_produto(cls, nome, descricao):
         try:
@@ -23,4 +31,13 @@ class ProdutoModel(db.Model):
                 return produto
             return None
         except BaseException as b:
+            return None
+
+    @classmethod
+    def salvar(cls, produto):
+        try:
+            db.session.add(produto)
+            db.session.commit()
+            return produto
+        except BaseException as e:
             return None
