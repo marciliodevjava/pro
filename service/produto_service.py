@@ -26,3 +26,8 @@ class ProdutoService:
                 }
         except Exception as e:
             return None
+
+    @classmethod
+    def buscar_todos(cls):
+        produto = ProdutoModel.buscar_todos_produtos()
+        return produto
