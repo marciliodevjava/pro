@@ -7,6 +7,7 @@ class ProdutoMapper:
                 'id': produto.id,
                 'nome': produto.nome,
                 'descricao': produto.descricao,
+                'quantidade': produto.quantidade,
                 'preco': float(produto.preco)
             })
         return lista_produto
