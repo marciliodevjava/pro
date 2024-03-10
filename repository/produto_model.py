@@ -73,3 +73,12 @@ class ProdutoModel(db.Model):
             return produto
         except BaseException as e:
             return None
+
+    @classmethod
+    def deletar_produto(cls, produto):
+        try:
+            db.session.delete(produto)
+            db.session.commit()
+            return True
+        except BaseException as e:
+            return None
