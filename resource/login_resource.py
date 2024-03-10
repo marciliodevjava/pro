@@ -2,7 +2,7 @@ from flask import request
 from flask_restful import Resource, reqparse
 
 from enumerate.message import UsuarioFormulario, LoginFormulario, MessageLogin
-from fomulario.usuario_shema import UsuarioSchema
+from form.usuario_shema import UsuarioSchema
 from service.usuario_service import UsuarioService
 
 
