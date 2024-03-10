@@ -14,5 +14,5 @@ def config_routes_v0(api: Api):
     api.add_resource(ProdutoResource, f'{BASE_PATH_HTTP}/produto', methods=['POST'], endpoint='cadastro_produto')
     api.add_resource(ProdutoResource, f'{BASE_PATH_HTTP}/produto/<int:id>', methods=['PUT'], endpoint='alterar_produto')
     api.add_resource(ProdutoResource, f'{BASE_PATH_HTTP}/produto', methods=['GET'], endpoint='buscar_produto')
-    api.add_resource(ProdutoResource, f'{BASE_PATH_HTTP}/produto', methods=['DELETE'], endpoint='deletar_produto')
+    api.add_resource(ProdutoResource, f'{BASE_PATH_HTTP}/produto/<int:id>', methods=['DELETE'], endpoint='deletar_produto')
     return api
