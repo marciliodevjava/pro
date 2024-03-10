@@ -2,7 +2,7 @@ from flask_restful import Api
 
 from config.banco_de_dados import db
 from config.jwt import jwt
-from variables.variaves import DATABASE_URI, SQLALCHEMY_DATABASE_URI, HEADER_NAME, HEADER_TYPE, NM_ID_SESSAO, NONE, \
+from variables.variaves_do_sistema import DATABASE_URI, SQLALCHEMY_DATABASE_URI, HEADER_NAME, HEADER_TYPE, NM_ID_SESSAO, NONE, \
     SECRET, SECRET_KEY, TOKEN, TIME_TOKEN
 
 
