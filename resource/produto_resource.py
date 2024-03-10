@@ -2,7 +2,7 @@ from flask_jwt_extended import jwt_required
 from flask_restful import Resource, request
 
 from enumerate.message import ProdutoMessage
-from fomulario.produto_shema import ProdutoShema
+from form.produto_shema import ProdutoShema
 from mapper.produto_mapper import ProdutoMapper
 from service.produto_service import ProdutoService
 
