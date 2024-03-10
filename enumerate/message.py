@@ -45,6 +45,9 @@ class ProdutoFormulario(Enum):
 
 
 class ProdutoMessage(Enum):
+    NAO_EXISTE_ESSE_PRODUTO_PARA_ATUALIZAR = 'Não existe esse produto para ser atualizado.'
+    OCORREU_UM_ERRO_AO_ATUALIZAR_PRODUTO = 'Ocorreu um erro ao atualizar esse produto.'
+    PRODUTO_ATUALIZADO_COM_SUCESSO = 'Produto atualizado com sucesso.'
     NAO_EXISTE_PRODUTOS_CADASTRADOS = 'Não existe produto cadastrados.'
     PRODUTO_OCORREU_UM_ERRO = 'Ocorreu um erro ao salvar produto.'
     PRODUTO_CRIADO_COM_SUCESSO = 'Produto criado com sucesso.'
