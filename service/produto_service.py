@@ -48,3 +48,15 @@ class ProdutoService:
         return {
             'message': ProdutoMessage.NAO_EXISTE_ESSE_PRODUTO_PARA_ATUALIZAR.value
         }
+
+    @classmethod
+    def deletar_produto(cls, id):
+        produto = ProdutoModel.buscar_produto_id(id)
+        produto_deletado = ProdutoModel.deletar_produto(produto)
+        if produto_deletado:
+            return {
+                'message': ProdutoMessage.PRODUTO_DELETADO_COM_SUCESSO.value
+            }
+        return {
+            'message': ProdutoMessage.OCORREU_UM_ERRO_AO_DELETAR_PRODUTO.value
+        }
