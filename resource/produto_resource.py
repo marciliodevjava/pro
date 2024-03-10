@@ -3,8 +3,8 @@ from flask_restful import Resource, request
 
 from enumerate.message import ProdutoMessage
 from fomulario.produto_shema import ProdutoShema
-from service.produto_service import ProdutoService
 from mapper.produto_mapper import ProdutoMapper
+from service.produto_service import ProdutoService
 
 
 class ProdutoResource(Resource):
@@ -17,7 +17,7 @@ class ProdutoResource(Resource):
         if not produto:
             return {
                 'message': ProdutoMessage.PRODUTO_OCORREU_UM_ERRO
-            }
+            }, 500
         return produto, 201
 
     def get(self):
@@ -29,8 +29,18 @@ class ProdutoResource(Resource):
             'message': ProdutoMessage.NAO_EXISTE_PRODUTOS_CADASTRADOS
         }
 
-    def put(self):
-        pass
+    def put(self, id):
+        dados = ProdutoShema().load(request.json)
+        produto = ProdutoService.atualizar_produto(dados, id)
+        if produto.get('message').__eq__(ProdutoMessage.NAO_EXISTE_ESSE_PRODUTO_PARA_ATUALIZAR.value):
+            return {
+                'message': ProdutoMessage.NAO_EXISTE_ESSE_PRODUTO_PARA_ATUALIZAR
+            }, 404
+        if not produto:
+            return {
+                'message': ProdutoMessage.OCORREU_UM_ERRO_AO_ATUALIZAR_PRODUTO
+            }, 500
+        return produto, 201
 
     def delete(self):
         pass
