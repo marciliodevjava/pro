@@ -51,3 +51,25 @@ class ProdutoModel(db.Model):
             return None
         except BaseException as e:
             return None
+
+    @classmethod
+    def buscar_produto_id(cls, identification):
+        try:
+            produto = db.session.query(cls).filter_by(id=identification).first()
+            if produto:
+                return produto
+            return None
+        except BaseException as e:
+            return None
+
+    @classmethod
+    def atualizar_produto(cls, produto, dados):
+        try:
+            produto.nome = dados['nome']
+            produto.descricao = dados['descricao']
+            produto.quantidade = dados['quantidade']
+            produto.preco = dados['preco']
+            db.session.commit()
+            return produto
+        except BaseException as e:
+            return None
