@@ -45,6 +45,8 @@ class ProdutoFormulario(Enum):
 
 
 class ProdutoMessage(Enum):
+    OCORREU_UM_ERRO_AO_DELETAR_PRODUTO = 'Ocorreu um erro ao deletar o Produto.'
+    PRODUTO_DELETADO_COM_SUCESSO = 'Produto deletado com sucesso.'
     NAO_EXISTE_ESSE_PRODUTO_PARA_ATUALIZAR = 'Não existe esse produto para ser atualizado.'
     OCORREU_UM_ERRO_AO_ATUALIZAR_PRODUTO = 'Ocorreu um erro ao atualizar esse produto.'
     PRODUTO_ATUALIZADO_COM_SUCESSO = 'Produto atualizado com sucesso.'
