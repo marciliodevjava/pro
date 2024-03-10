@@ -31,3 +31,20 @@ class ProdutoService:
     def buscar_todos(cls):
         produto = ProdutoModel.buscar_todos_produtos()
         return produto
+
+    @classmethod
+    def atualizar_produto(cls, dados, identification):
+        produto = ProdutoModel.buscar_produto_id(identification)
+        if produto:
+            produto = ProdutoModel.atualizar_produto(produto, dados)
+            if produto:
+                return {
+                    'message': ProdutoMessage.PRODUTO_ATUALIZADO_COM_SUCESSO.value,
+                    'produto': produto.json()
+                }
+            return {
+                'message': ProdutoMessage.OCORREU_UM_ERRO_AO_ATUALIZAR_PRODUTO.value
+            }
+        return {
+            'message': ProdutoMessage.NAO_EXISTE_ESSE_PRODUTO_PARA_ATUALIZAR.value
+        }
