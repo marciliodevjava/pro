@@ -42,5 +42,8 @@ class ProdutoResource(Resource):
             }, 500
         return produto, 201
 
-    def delete(self):
-        pass
+    def delete(self, id):
+        produto = ProdutoService.deletar_produto(id)
+        if produto.get('message').__eq__(ProdutoMessage.OCORREU_UM_ERRO_AO_DELETAR_PRODUTO.value):
+            return produto, 500
+        return produto, 200
