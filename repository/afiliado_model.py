@@ -7,7 +7,7 @@ class AfiliadoModel(db.Model):
     nome_completo = db.Column(db.String(150), nullable=False)
     email = db.Column(db.String(255), nullable=False)
     cpf = db.Column(db.String(11), nullable=False)
-    rg = db.Column9(db.String(15), nullable=False)
+    rg = db.Column(db.String(15), nullable=False)
 
     def __init__(self, nome, email, cpf, rg):
         self.nome_completo = nome
