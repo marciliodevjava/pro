@@ -15,6 +15,15 @@ class AfiliadoModel(db.Model):
         self.cpf = cpf
         self.rg = rg
 
+    def json(self):
+        return {
+            'id': self.id,
+            'nome': self.nome_completo,
+            'email': self.email,
+            'cpf': self.cpf,
+            'rg': self.rg
+        }
+
     @classmethod
     def salvar(cls, afiliado):
         try:
