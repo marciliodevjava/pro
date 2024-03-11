@@ -1,4 +1,5 @@
 from repository.afiliado_model import AfiliadoModel
+from enumerate.message import AfiliadoMessage
 class AfiliadoService:
     @classmethod
     def cadastrar_afiliado(cls, dados):
@@ -8,7 +9,14 @@ class AfiliadoService:
         rg = dados['rg']
         afiliado = AfiliadoModel(nome, email, cpf, rg)
         afiliado = AfiliadoModel.salvar(afiliado)
-        if afiliado:
+        if not afiliado:
+            return {
+                'message': AfiliadoMessage.AFILIADO_OCORREU_UM_ERRO_AO_SALVAR.value,
+            }
+        return {
+            'message': AfiliadoMessage.AFILIADO_CRIADO_COM_SUCESSO.value,
+            'afiliado': afiliado.json()
+        }
 
 
     @classmethod
