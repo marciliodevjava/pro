@@ -14,3 +14,12 @@ class AfiliadoModel(db.Model):
         self.email = email
         self.cpf = cpf
         self.rg = rg
+
+    @classmethod
+    def salvar(cls, afiliado):
+        try:
+            db.session.add(afiliado)
+            db.session.commit()
+            return afiliado
+        except BaseException as e:
+            return None

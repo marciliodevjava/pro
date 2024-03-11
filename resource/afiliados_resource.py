@@ -1,10 +1,13 @@
-from flask_restful import Resource
+from flask_restful import Resource, request
 
+from form.afiliado_shema import AfiliadoShema
+from service.afiliado_service import AfiliadoService
 
 class AfiliadoResource(Resource):
 
     def post(self):
-        pass
+        dados = AfiliadoShema().load(request.json)
+        afiliado = AfiliadoService.cadastrar_afiliado(dados)
 
     def get(self):
         pass
