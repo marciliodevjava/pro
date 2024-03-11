@@ -20,5 +20,5 @@ def config_routes_v0(api: Api):
     api.add_resource(AfiliadoResource, f'{BASE_PATH_HTTP}/afiliado', methods=['POST'], endpoint='cadastro_afiliado')
     api.add_resource(AfiliadoResource, f'{BASE_PATH_HTTP}/afiliado', methods=['PUT'], endpoint='alterar_afiliado')
     api.add_resource(AfiliadoResource, f'{BASE_PATH_HTTP}/afiliado/<int:id>', methods=['GET'], endpoint='buscar_afiliado')
-    api.add_resource(AfiliadoResource, f'{BASE_PATH_HTTP}/afiliado', methods=['DELETE'], enpoint='deletar_afiliado')
+    api.add_resource(AfiliadoResource, f'{BASE_PATH_HTTP}/afiliado', methods=['DELETE'], endpoint='deletar_afiliado')
     return api
