@@ -1,7 +1,7 @@
 from enum import Enum
 
 from variables.variaveis_enum import LOGIN, SENHA, EMAIL, NONE, PRECO, DESCRICAO, QUANTIDADE, USUARIO, PRODUTO, TOKEN, \
-    CPF
+    CPF, AFILIADO
 
 
 class MessageLogin(Enum):
@@ -69,3 +69,8 @@ class AfiliadoFormulario(Enum):
     CAMPO_CPF = f'O campo {CPF} não foi enviado.'
     CAMPO_EMAIL = f'O campo {EMAIL} não foi enviado.'
     CAMPO_NOME = f'O campo {NONE} não foi enviado.'
+
+
+class AfiliadoMessage(Enum):
+    AFILIADO_OCORREU_UM_ERRO_AO_SALVAR = f'Ocorreu um erro ao salvar {AFILIADO}.'
+    AFILIADO_CRIADO_COM_SUCESSO = f'{AFILIADO} criado com sucesso.'
