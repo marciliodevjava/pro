@@ -1,6 +1,7 @@
 from enum import Enum
 
-from variables.variaveis_enum import LOGIN, SENHA, EMAIL, NONE, PRECO, DESCRICAO, QUANTIDADE, USUARIO, PRODUTO, TOKEN
+from variables.variaveis_enum import LOGIN, SENHA, EMAIL, NONE, PRECO, DESCRICAO, QUANTIDADE, USUARIO, PRODUTO, TOKEN, \
+    CPF
 
 
 class MessageLogin(Enum):
@@ -61,3 +62,10 @@ class ProdutoMessage(Enum):
 class ErroServidorMessage(Enum):
     ERRO_OCORREU_ERRO_INTERNO_SERVIDOR = 'Ocorreu um erro interno no servidor.'
     ERRO_INTERNO_SERVIDOR = 'Erro interno no servidor'
+
+
+class AfiliadoFormulario(Enum):
+    CAMPO_PRECO = f'O campo {PRECO} não foi enviado.'
+    CAMPO_CPF = f'O campo {CPF} não foi enviado.'
+    CAMPO_EMAIL = f'O campo {EMAIL} não foi enviado.'
+    CAMPO_NOME = f'O campo {NONE} não foi enviado.'
