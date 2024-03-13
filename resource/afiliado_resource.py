@@ -30,6 +30,9 @@ class AfiliadoResource(Resource):
     def put(self, id):
         dados = AfiliadoShema().load(request.json)
         afiliado = AfiliadoService.atualizar_afiliado(dados, id)
+        if afiliado.get('message').__eq__(AfiliadoMessage.AFILIADO_NAO_FOI_ATUALIZADO.value):
+            return afiliado, 404
+        return afiliado, 200
 
     def delete(self):
         pass
