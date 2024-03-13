@@ -21,8 +21,11 @@ class AfiliadoResource(Resource):
             'afiliado': afiliado.json()
         }, 201
 
-    def get(self):
-        pass
+    def get(self, id):
+        afiliado = AfiliadoService.buscar_afiliado(id)
+        if afiliado.get('message').__eq__(AfiliadoMessage.AFILIADO_NAO_EXISTE.value):
+            return afiliado, 404
+        return afiliado, 200
 
     def put(self):
         pass
