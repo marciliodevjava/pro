@@ -74,3 +74,7 @@ class AfiliadoFormulario(Enum):
 class AfiliadoMessage(Enum):
     AFILIADO_OCORREU_UM_ERRO_AO_SALVAR = f'Ocorreu um erro ao salvar {AFILIADO}.'
     AFILIADO_CRIADO_COM_SUCESSO = f'{AFILIADO} criado com sucesso.'
+
+
+class AfiliadoMessageModel(Enum):
+    AFILIADO_JA_EXISTE = f"{AFILIADO} já existe."
