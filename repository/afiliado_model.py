@@ -1,6 +1,6 @@
 from config.config import db
 from enumerate.message import AfiliadoMessageModel
-
+from utils.formatador_utils import FormatadorDados
 
 class AfiliadoModel(db.Model):
     __tablename__ = 'afiliado'
@@ -62,10 +62,10 @@ class AfiliadoModel(db.Model):
 
     @classmethod
     def atualizar_afiliado(cls, dados, afiliado):
-        nome = dados['nome']
-        email = dados['email']
-        cpf = dados['cpf']
-        rg = dados['rg']
+        nome = FormatadorDados.formatador_nome(dados['nome'])
+        email = FormatadorDados.formatador_email(dados['email'])
+        cpf = FormatadorDados.formatar_cpf(dados['cpf'])
+        rg = FormatadorDados.formatar_rg(dados['rg'])
         try:
             afiliado.nome_completo = nome
             afiliado.email = email
