@@ -1,4 +1,5 @@
 from config.config import db
+from enumerate.message import AfiliadoMessageModel
 
 
 class AfiliadoModel(db.Model):
@@ -27,9 +28,12 @@ class AfiliadoModel(db.Model):
     @classmethod
     def salvar(cls, afiliado):
         try:
-            buscar = cls.buscar_afiliado(afiliado)
+            buscar = cls.buscar_afiliado_salvar(afiliado)
             if buscar:
-                return buscar
+                return {
+                    'message': AfiliadoMessageModel.AFILIADO_JA_EXISTE.value,
+                    'afiliado': buscar.json()
+                }
             db.session.add(afiliado)
             db.session.commit()
             return afiliado
@@ -46,3 +50,12 @@ class AfiliadoModel(db.Model):
         except BaseException as b:
             return None
 
+    @classmethod
+    def buscar_afiliado_salvar(cls, afiliado):
+        try:
+            buscar = db.session.query(cls).filter_by(nome_completo=afiliado.nome_completo, email=afiliado.email).first()
+            if buscar:
+                return buscar
+            return None
+        except BaseException as b:
+            return None
