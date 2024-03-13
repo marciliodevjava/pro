@@ -27,8 +27,9 @@ class AfiliadoResource(Resource):
             return afiliado, 404
         return afiliado, 200
 
-    def put(self):
-        pass
+    def put(self, id):
+        dados = AfiliadoShema().load(request.json)
+        afiliado = AfiliadoService.atualizar_afiliado(dados, id)
 
     def delete(self):
         pass
