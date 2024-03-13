@@ -41,9 +41,9 @@ class AfiliadoModel(db.Model):
             return None
 
     @classmethod
-    def buscar_afiliado(cls, afiliado):
+    def buscar_afiliado(cls, id):
         try:
-            buscar = db.session.query(cls).filter_by(id=afiliado.id).first()
+            buscar = db.session.query(cls).filter_by(id=id).first()
             if buscar:
                 return buscar
             return None
