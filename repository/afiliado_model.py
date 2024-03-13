@@ -59,3 +59,19 @@ class AfiliadoModel(db.Model):
             return None
         except BaseException as b:
             return None
+
+    @classmethod
+    def atualizar_afiliado(cls, dados, afiliado):
+        nome = dados['nome']
+        email = dados['email']
+        cpf = dados['cpf']
+        rg = dados['rg']
+        try:
+            afiliado.nome_completo = nome
+            afiliado.email = email
+            afiliado.cpf = cpf
+            afiliado.rg = rg
+            db.session.commit()
+            return afiliado
+        except BaseException as e:
+            return None
