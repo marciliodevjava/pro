@@ -1,6 +1,8 @@
 from enumerate.message import AfiliadoMessage
+from enumerate.message import AfiliadoMessageModel
 from repository.afiliado_model import AfiliadoModel
 from utils.formatador_utils import FormatadorDados
+
 
 class AfiliadoService:
     @classmethod
@@ -11,6 +13,8 @@ class AfiliadoService:
         rg = FormatadorDados.formatar_rg(dados['rg'])
         afiliado = AfiliadoModel(nome, email, cpf, rg)
         afiliado = AfiliadoModel.salvar(afiliado)
+        if afiliado.get('message').__eq__(AfiliadoMessageModel.AFILIADO_JA_EXISTE.value):
+            return afiliado
         if not afiliado:
             return {
                 'message': AfiliadoMessage.AFILIADO_OCORREU_UM_ERRO_AO_SALVAR.value,
