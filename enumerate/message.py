@@ -72,6 +72,8 @@ class AfiliadoFormulario(Enum):
 
 
 class AfiliadoMessage(Enum):
+    AFILIADO_NAO_FOI_ATUALIZADO = f'Não foi possivel atualizar o {AFILIADO}.'
+    AFILIADO_ATUALIZADO_COM_SUCESSO = f'{AFILIADO} atualizado com sucesso.'
     AFILIADO_NAO_EXISTE = f'A busca não encontrou esse {AFILIADO}.'
     AFILIADO_ENCONTRADO_COM_SUCESSO = f'{AFILIADO} encontrado com sucesso.'
     AFILIADO_OCORREU_UM_ERRO_AO_SALVAR = f'Ocorreu um erro ao salvar {AFILIADO}.'
