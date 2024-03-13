@@ -25,8 +25,16 @@ class AfiliadoService:
         }
 
     @classmethod
-    def buscar_afiliado(cls):
-        pass
+    def buscar_afiliado(cls, id):
+        afiliado = AfiliadoModel.buscar_afiliado(id)
+        if afiliado:
+            return {
+                'message': AfiliadoMessage.AFILIADO_ENCONTRADO_COM_SUCESSO.value,
+                'afiliado': afiliado.json()
+            }
+        return {
+            'message': AfiliadoMessage.AFILIADO_NAO_EXISTE.value
+        }
 
     @classmethod
     def atualizar_afiliado(cls):
