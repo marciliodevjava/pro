@@ -2,7 +2,7 @@ from flask_restful import Api
 
 from resource.login_resource import CadastroResource, LoginResource
 from resource.produto_resource import ProdutoResource
-from resource.afiliados_resource import AfiliadoResource
+from resource.afiliado_resource import AfiliadoResource
 from variables.variaves_do_sistema import BASE_PATH_HTTP
 
 
