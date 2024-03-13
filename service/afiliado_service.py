@@ -37,8 +37,19 @@ class AfiliadoService:
         }
 
     @classmethod
-    def atualizar_afiliado(cls):
-        pass
+    def atualizar_afiliado(cls, dados, id):
+        afiliado = AfiliadoModel.buscar_afiliado(id)
+        if afiliado:
+            afiliado = AfiliadoModel.atualizar_afiliado(dados, afiliado)
+            if afiliado:
+                return {
+                    'message': AfiliadoMessage.AFILIADO_ATUALIZADO_COM_SUCESSO.value,
+                    'afiliado': afiliado.json()
+                }
+            return None
+        return {
+            'message': AfiliadoMessage.AFILIADO_NAO_FOI_ATUALIZADO.value
+        }
 
     @classmethod
     def deletar_afiliado(cls):
