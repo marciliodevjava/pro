@@ -27,8 +27,22 @@ class AfiliadoModel(db.Model):
     @classmethod
     def salvar(cls, afiliado):
         try:
+            buscar = cls.buscar_afiliado(afiliado)
+            if buscar:
+                return buscar
             db.session.add(afiliado)
             db.session.commit()
             return afiliado
         except BaseException as e:
             return None
+
+    @classmethod
+    def buscar_afiliado(cls, afiliado):
+        try:
+            buscar = db.session.query(cls).filter_by(id=afiliado.id).first()
+            if buscar:
+                return buscar
+            return None
+        except BaseException as b:
+            return None
+
