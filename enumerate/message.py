@@ -72,6 +72,8 @@ class AfiliadoFormulario(Enum):
 
 
 class AfiliadoMessage(Enum):
+    AFILIADO_DELETADO_COM_SUCESSO = f'{AFILIADO} deletado com sucesso.'
+    NAO_FOI_POSSIVEL_DELETAR_AFILIADO = f'Não foi possivel deletar o {AFILIADO}.'
     AFILIADO_NAO_FOI_ATUALIZADO = f'Não foi possivel atualizar o {AFILIADO}.'
     AFILIADO_ATUALIZADO_COM_SUCESSO = f'{AFILIADO} atualizado com sucesso.'
     AFILIADO_NAO_EXISTE = f'A busca não encontrou esse {AFILIADO}.'
