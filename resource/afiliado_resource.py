@@ -34,5 +34,10 @@ class AfiliadoResource(Resource):
             return afiliado, 404
         return afiliado, 200
 
-    def delete(self):
-        pass
+    def delete(self, id):
+        resposta = AfiliadoService.deletar_afiliado(id)
+        if resposta:
+            return resposta, 200
+        return {
+            'message': AfiliadoMessage.NAO_FOI_POSSIVEL_DELETAR_AFILIADO.value
+        }
