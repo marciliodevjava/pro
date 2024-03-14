@@ -2,6 +2,7 @@ from config.config import db
 from enumerate.message import AfiliadoMessageModel
 from utils.formatador_utils import FormatadorDados
 
+
 class AfiliadoModel(db.Model):
     __tablename__ = 'afiliado'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -75,3 +76,14 @@ class AfiliadoModel(db.Model):
             return afiliado
         except BaseException as e:
             return None
+
+    @classmethod
+    def deletar_afiliado(cls, id):
+        afiliado = cls.buscar_afiliado(id)
+        if afiliado:
+            try:
+                db.session.delete(afiliado)
+                db.session.commit()
+                return True
+            except BaseException as e:
+                return None
