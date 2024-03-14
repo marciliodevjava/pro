@@ -1,3 +1,4 @@
+from flask_jwt_extended import jwt_required
 from flask_restful import Resource, request
 
 from enumerate.message import AfiliadoMessageModel, AfiliadoMessage
@@ -7,6 +8,7 @@ from service.afiliado_service import AfiliadoService
 
 class AfiliadoResource(Resource):
 
+    @jwt_required()
     def post(self):
         dados = AfiliadoShema().load(request.json)
         afiliado = AfiliadoService.cadastrar_afiliado(dados)
@@ -21,12 +23,14 @@ class AfiliadoResource(Resource):
             'afiliado': afiliado.json()
         }, 201
 
+    @jwt_required()
     def get(self, id):
         afiliado = AfiliadoService.buscar_afiliado(id)
         if afiliado.get('message').__eq__(AfiliadoMessage.AFILIADO_NAO_EXISTE.value):
             return afiliado, 404
         return afiliado, 200
 
+    @jwt_required()
     def put(self, id):
         dados = AfiliadoShema().load(request.json)
         afiliado = AfiliadoService.atualizar_afiliado(dados, id)
@@ -34,6 +38,7 @@ class AfiliadoResource(Resource):
             return afiliado, 404
         return afiliado, 200
 
+    @jwt_required()
     def delete(self, id):
         resposta = AfiliadoService.deletar_afiliado(id)
         if resposta:
