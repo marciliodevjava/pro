@@ -52,5 +52,10 @@ class AfiliadoService:
         }
 
     @classmethod
-    def deletar_afiliado(cls):
-        pass
+    def deletar_afiliado(cls, id):
+        resposta = AfiliadoModel.deletar_afiliado(id)
+        if resposta:
+            return {
+                'message': AfiliadoMessage.AFILIADO_DELETADO_COM_SUCESSO.value
+            }
+        return None
